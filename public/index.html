@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Figure Skating 101</title>
+    <base target="_top">
+    <link rel="icon" href="skate.jpeg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/materialize.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Figure skating scoring interface based on ISU communication 2253">
+  </head>
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="sidenav-list" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down" id="nav-mobile">
+            <li class="navAdd"><a>Add Student</a></li>
+            <li class="navProgramBuilder"><a>Program Builder</a></li>
+            <li class="navScoring"><a>Scoring</a></li>
+          </ul>
+          <a id="navTitle" style="font-family: Snell, Roundhand, cursive;" href="#" class="brand-logo hide-on-large-only">Scoring</a>
+          <ul class="right hide-on-med-and-down">
+            <a class="navLogout btn">Logout</a>
+          </ul>
+        </div>
+      </nav>
+    </div>
+            
+    <ul class="sidenav" id="sidenav-list">
+          <li class="navAdd"><a>Add Students</a></li>
+          <li class="navProgramBuilder"><a>Program Builder</a></li>
+          <li class="navScoring"><a>Scoring</a></li>
+          <a class="navLogout btn" style="width:100%">Logout</a>
+    </ul>
+
+    <div class="container">
+    
+      <div class="tab" id="add">
+      <form action="/students" method="POST">
+        <label for="firstName">First Name:</label>
+        <input id="firstName" name="firstName"><br><br>
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" name="lastName"><br><br>
+        <label for="DOB">Date of Birth:</label>
+        <input type="date" id="DOB" name="DOB">
+        <input type="submit" value="Submit Form">
+      </form>
+      </div>
+  
+      <div class="tab" id="students">
+        <ul id="studentList">
+        </ul> 
+      </div>
+  
+  <div class="tab" id="programBuilder">
+    <div class="row">
+      <label for="programElementEntry">Element:</label>
+      <input type="text" id="programElementEntry">
+      <ul class="collection row">
+      </ul>
+    </div>
+    
+  </div>
+  
+  <div class="tab" id="scoring">
+    <div class="row valign-wrapper">
+      <div class="input-field col s9">
+        <label for="scoringElementInputField">Element</label>
+        <input type="text" class="elementEntry" id="scoringElementInputField">
+      </div>
+      <a class="btn col s3" id="clear">Clear</a>
+        </div>
+        <div class="row">
+          <div id="scoringElementList">
+
+            <div class='col s12 z-depth-3 valign-wrapper hide'>
+              <p class="col s4 name center-align"></p>
+              <p class="col s4 currentCode center-align"></p>
+              <p class="col s4 currentScore center-align"></p>
+            </div>
+
+            <div class='col s12 z-depth-3 valign-wrapper hide'>
+              <p class="col s4 name center-align"></p>
+              <p class="col s4 currentCode center-align"></p>
+              <p class="col s4 currentScore center-align"></p>
+            </div>
+
+            <div class='col s12 z-depth-3 valign-wrapper hide'>
+              <p class="col s4 name center-align"></p>
+              <p class="col s4 currentCode center-align"></p>
+              <p class="col s4 currentScore center-align"></p>
+            </div>
+            <button class="btn col s12 hide remove" style="margin: 2px">Remove Element</button>
+          </div>  
+        </div>
+
+        <div class="row selectors">
+
+          <div class="btn-group col s12 m6 l6 rotation-selector hide">
+            <p class="title">Rotations:</p>
+            <div class="button-group">
+              <a class="btn hide">1</a>
+              <a class="btn hide">2</a>
+              <a class="btn hide">3</a>
+              <a class="btn hide">4</a>
+            </div>
+          </div>
+
+          <div class="btn-group col s12 m6 l6 level-selector hide">
+            <p class="title">Level:</p>
+            <div class="button-group">
+              <a class="btn hide">B</a>
+              <a class="btn hide">1</a>
+              <a class="btn hide">2</a>
+              <a class="btn hide">3</a>
+              <a class="btn hide">4</a>
+            </div>
+          </div>
+
+          <div class="btn-group col s12 m6 l6 modifier-selector hide">
+            <p class="title">Modifiers:</p>
+            <div class="button-group">
+              <a class="btn hide">!</a>
+              <a class="btn hide">e</a>
+              <a class="btn hide">q</a>
+              <a class="btn hide"><</a>
+              <a class="btn hide"><<</a>
+              <a class="btn hide">v</a>
+            </div>
+          </div>
+
+        </div>
+      
+      <div class="divider"></div>
+      <div id="goe row">
+
+          <p class="range-field hide">
+            <label for="goeSlider">GOE:</label>
+            <input type="range" id="goeSlider" min="-5" max="5"/>
+          </p>
+          
+      </div>
+      <div class="total row hide">
+        <div class='col s12 z-depth-3 valign-wrapper grey'>
+          <p class="col s4 totalCode center-align"></p>
+          <p class="col s4 goe center-align"></p>
+          <p class="col s4 totalScore center-align"></p>
+        </div>
+      </div>
+      
+  </div>
+    
+</div>
+
+  </div>
+  </body>
+  <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/elements.js"></script>
+  <script src="js/DOM.js"></script>
+  <script src="js/program.js"></script>
+</html>

@@ -1,0 +1,33 @@
+
+  .tab{
+    display: none;
+  }
+  
+  .sortable-ghost{
+     background-color:#FEE;
+  }
+  
+  #welcome{
+   display: block;
+  }
+
+  #scoringElementList div {
+    margin: 2px;
+    background-color: grey;
+    transition-duration: 0.2s;
+  }
+  #scoringElementList div:hover {
+    background-color:#AAA !important;
+    cursor: pointer;
+  }
+  #scoringElementList div.on {
+    background-color: rgb(100, 100, 100);
+
+  }
+  #scoringElementList div.on:hover {
+    background-color: rgb(100, 100, 100) !important;
+  }
+
+  #scoringElementList p{
+    color: white;
+  }
